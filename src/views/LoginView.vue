@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Esta daqui é a Home</h1>
+    <h1>Esta daqui é o Login </h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 
 export default {
-  name: 'HomeView',
+  name: 'LoginView',
   components: {
     
   }
