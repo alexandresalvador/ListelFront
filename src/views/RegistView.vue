@@ -209,9 +209,9 @@ export default {
     };
   },
   computed: {
-    telaInicial() {
-      return this.$route.name === "";
-    },
+    // telaInicial() {
+    //   return this.$route.name === "";
+    // },
   },
   methods: {
     criarCadastro() {
