@@ -157,13 +157,13 @@
                   </button>
                   <button
                    v-else
-                  @click="click"
+                  @click="criarCadastro()"
                    type="button"
-                   class="btn btn-light border border-primary"
-                   >
-                 <a class="text-primary text-decoration-none" href="/">
+                   class="btn btn-light border border-primary text-primary"
+                   >Entrar
+                 <!-- <a class="text-primary text-decoration-none" href="/">
                     Entrar
-                 </a>
+                 </a> -->
                 </button>
                   <br />
                   <br />
@@ -193,6 +193,8 @@
 </template>
 
 <script>
+import supabase from '../services/index';
+
 export default {
   name: "RegistView",
   components: {},
@@ -212,6 +214,33 @@ export default {
     },
   },
   methods: {
+    criarCadastro() {
+      const cadastro = {
+        nome: this.nome,
+        email: this.email,
+        senha: this.senha,
+        senha2: this.senha2,
+        cidade: this.cidade,
+        estado: this.estado,
+      };
+      this.salvarcadastro(cadastro);
+      this.$router.push('/');
+    },
+    async salvarcadastro(camposCadastro) {
+      const { data, error } = await supabase
+        .from('user')
+        .insert([camposCadastro]);
+      this.success(data);
+      this.error(error);
+    },
+    success(data) {
+      console.log('informações: ', data);
+    },
+    error(error) {
+      if (error) {
+        console.log('error', error);
+      }
+    },
     mostrarOcultarSenha: function () {
       var senha = document.getElementById("senha");
 

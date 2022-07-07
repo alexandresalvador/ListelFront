@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegistView from '../views/RegistView.vue'
+import PreviewView from '../views/PreviewView'
+import AddNew from '../views/AddNew'
 
 Vue.use(VueRouter)
 
@@ -22,6 +24,16 @@ const routes = [
     name: 'criar-conta',
     component: RegistView
   },  
+  {
+    path: '/preview/:id',
+    name: 'preview',
+    component: PreviewView
+  }, 
+  {
+    path: '/adicionar',
+    name: 'adicionar',
+    component: AddNew
+  }, 
 ]
 
 const router = new VueRouter({
